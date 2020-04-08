@@ -11,6 +11,7 @@
         <p>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}<br>
+            <!-- The username and password fields in this template take the size as an argument that will be added to the <input> HTML element as an attribute. -->
             {% for error in form.username.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
@@ -18,11 +19,12 @@
         <p>
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}<br>
+            <!-- The username and password fields in this template take the size as an argument that will be added to the <input> HTML element as an attribute. -->
             {% for error in form.password.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.rembember_me() }} {{ form.rembember_me.label }} </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }} </p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}
