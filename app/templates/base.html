@@ -14,6 +14,15 @@
             </p>
         </div>
         <hr>
+        {% with messages = get_flashed_messages() %} <!-- returns a list of all the messages that have been registered with flash() -->
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ messsage }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %} <!-- derived templates will be inserted after this line-->
         {% endblock%}
     </body>
