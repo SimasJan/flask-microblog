@@ -5,10 +5,17 @@ The data that will be stored in the database and will be represented by a collec
 
 ## Database Migrations
 
-- Create a database migration sub-command
+- Generate a new database migration
 > flask db migrate -m 'user table'
 
-> flask db upgrade()
-- downgrade()
+- Apply the newly generated migrations to the database
+> flask db upgrade
 
-ou will find that it has two functions called upgrade() and downgrade(). The upgrade() function applies the migration, and the downgrade() function removes it. This allows Alembic to migrate the database to any point in the history, even to older versions, by using the downgrade path.
+- Allows Alembic to migrate the database to any point in the history, even to older versions, by using the downgrade path.
+> flask db downgrade
+
+### Manual Database Manipulation
+
+1. Changes to a database are made in the context of a session, which can be accessed as `db.session`.
+2. Multiple changes can be accumulated in a session and once all the changes have been registered write all the changes atomically `db.session.commit()`. **Changes are only written to the database using this command.**
+3. If at any time while working on a session there is an error, a call to `db.session.rollback()` will abort the session and remove any changes stored in it.
