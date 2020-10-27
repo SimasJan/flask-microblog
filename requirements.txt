@@ -28,7 +28,7 @@ cffi==1.14.0
 chardet==3.0.4
 Click==7.0
 confuse==1.0.0
-cryptography==2.8
+cryptography==3.2
 curtsies==0.3.0
 cycler==0.10.0
 cymem==2.0.2
